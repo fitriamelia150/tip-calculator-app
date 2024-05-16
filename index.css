@@ -1,0 +1,265 @@
+@font-face {
+    font-family: 'Space Mono';
+    src: url('/fonts/SpaceMono-Regular.ttf');
+}
+
+*  {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2 {
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+h1 , label {
+    text-transform: capitalize;
+    color: var(--dark-grayish-cyan);
+    font-weight: bold;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"] {
+    width: 100%;
+    height: 45px;
+    border: none;
+    background-color: var(--very-light-grayish-cyan);
+    color: var(--very-dark-cyan);
+    font-size: 1.5rem;
+    text-align: right;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+input:focus{
+    outline:none;
+    border: 1px solid var(--strong-cyan);
+    cursor:text;
+}
+
+input[type="number"]:hover {
+    outline:none;
+    border: 1px solid var(--strong-cyan);
+}
+
+:root {
+    /* primary */
+    --strong-cyan: hsl(172, 67%, 45%);
+
+    /* neutral */
+    --very-dark-cyan: hsl(183, 100%, 15%);
+    --dark-grayish-cyan: hsl(186, 14%, 43%);
+    --grayish-cyan: hsl(184, 14%, 56%);
+    --light-grayish-cyan: hsl(185, 41%, 84%);
+    --very-light-grayish-cyan: hsl(189, 41%, 97%);
+    --white: hsl(0, 0%, 100%);
+}
+
+body {
+    font-family: 'Space Mono';
+    min-width: 375px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: var(--light-grayish-cyan);
+}
+
+section header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+section main {
+    background-color: var(--white);
+    padding: 35px;
+    border-radius: 20px 20px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px
+}
+
+.input-form {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.input-form .bill {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-form .bill input[id="bill"] {
+    background-image: url('/images/icon-dollar.svg');
+    background-repeat: no-repeat;
+    background-position: 10px;
+}
+
+.input-form .tip {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-form .tip .tip-btn {
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    gap: 15px;
+}
+
+/* .input-form .tip .tip-btn button {
+    width: 145px;
+    height: 50px;
+    background-color: var(--very-dark-cyan);
+    color: var(--white);
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.input-form .tip .tip-btn button:hover{
+    background-color: var(--light-grayish-cyan);
+    color: var(--very-dark-cyan);
+}
+
+.input-form .tip .tip-btn button:focus{
+    background-color: var(--strong-cyan);
+    color: var(--very-dark-cyan);
+} */
+
+/* input[type="radio"] {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+} */
+
+.input-form .tip .tip-btn label {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 145px;
+    height: 50px;
+    background-color: var(--very-dark-cyan);
+    color: var(--white);
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.input-form .tip .tip-btn label:hover{
+    background-color: var(--light-grayish-cyan);
+    color: var(--very-dark-cyan);
+}
+
+.input-form .tip .tip-btn input[type="radio"]:checked + label{
+    background-color: var(--strong-cyan);
+    color: var(--very-dark-cyan);
+}
+
+.input-form .tip .tip-btn input[type="number"] {
+    width: 145px;
+    height: 50px;
+    font-family: 'Space mono';
+}
+
+.input-form .num-people {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-form .num-people input[id="num-people"] {
+    background-image: url('/images/icon-person.svg');
+    background-repeat: no-repeat;
+    background-position: 10px;
+}
+
+.show-form {
+    background-color: var(--very-dark-cyan);
+    color: var(--white);
+    padding: 40px 20px 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
+
+.show-form > * {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.show-form h1 {
+    color: var(--white);
+    margin-bottom: 5px;
+}
+
+.show-form h2 {
+    color: var(--grayish-cyan);
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+.show-form p {
+    color: var(--strong-cyan);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.show-form .total-amount {
+    margin-bottom: 20px;
+}
+
+.show-form button {
+    background-color: var(--strong-cyan);
+    color: var(--very-dark-cyan);
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    height: 50px;
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.show-form button:hover{
+    background-color: var(--light-grayish-cyan);
+}
+
+
+
