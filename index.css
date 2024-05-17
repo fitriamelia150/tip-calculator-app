@@ -61,6 +61,11 @@ input[type="number"]:hover {
     border: 1px solid var(--strong-cyan);
 }
 
+input[type="number"]::placeholder {
+    font-family: 'Space mono';
+    color: var(--grayish-cyan);
+}
+
 :root {
     /* primary */
     --strong-cyan: hsl(172, 67%, 45%);
@@ -261,5 +266,70 @@ section main {
     background-color: var(--light-grayish-cyan);
 }
 
+.show-form button:disabled {
+    background-color: var(--grayish-cyan);
+    color: var(--dark-grayish-cyan);
+    cursor: not-allowed;
+}
 
+@media screen and (width > 800px) {
+    input[type="number"] {
+        height: 60px;
+    }
 
+    body {
+        align-items: center;
+    }
+
+    body section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        width: 100%;
+    }
+
+    section main {
+        flex-direction: row;
+        gap: 50px;
+        padding: 40px;
+        max-width: 1034px;
+        border-radius: 20px;
+    }
+
+    section main form {
+        width: 50%;
+    }
+
+    .input-form .tip .tip-btn label {
+        width: 130px;
+        height: 60px;
+    }
+
+    .input-form .tip .tip-btn input[type="number"] {
+        width: 130px;
+        height: 60px;
+    }
+
+    .input-form .tip .tip-btn {
+        justify-content: space-evenly;
+    }
+
+    section main .show-form {
+        width: 50%;
+    }
+
+    .show-form {
+        padding: 50px;
+        margin-top: 20px;
+    }
+
+    .show-form .total-amount {
+        margin-bottom: 100px;
+    }
+
+    .show-form p {
+        font-size: 3rem;
+    }
+}
