@@ -1,28 +1,37 @@
-function availableResetBtn(){
-    let bill = document.getElementById("bill");
-    let resetBtn = document.getElementById("reset-btn");
+var form = document.querySelector('form');
+var resetBtn = document.getElementById("reset-btn");
+var labelTipAmount = document.getElementById("label-tip-amount");
+var labelTotAmaount = document.getElementById("label-total-amount");
 
+
+const availableResetBtn = () => {
     resetBtn.removeAttribute("disabled");
 }
 
 
-function changeTip(){
-    if (document.querySelector('input[name="tip"]:checked')) {     
-        let tip = document.querySelector('input[name="tip"]:checked');
-        tip.checked = false;
+const changeTip = () => {
+    let tipRadio = document.querySelector('input[name="tip"]:checked');
+
+    if (tipRadio != null) {
+        tipRadio.checked = false;
     }
     availableResetBtn();
     countSplitBill();
 }
 
-function clearCustomTip(){
+const clearCustomTip = () => {  
     let customTip = document.getElementById("custom-tip");
     customTip.value = "";
     availableResetBtn();
-    countSplitBill();
+    setTimeout(() => {
+        countSplitBill();
+    }, 100)
 }
 
-function countSplitBill(){
+const countSplitBill = () => {
+    let billInput = document.getElementById("bill");
+    let tipRadio = document.querySelector('input[name="tip"]:checked') != null? document.querySelector('input[name="tip"]:checked').value : 0;
+    let customTip = document.getElementById("custom-tip").value;
     let numPeople = document.getElementById("num-people");
     let infoError = document.getElementById("error");
 
@@ -34,37 +43,26 @@ function countSplitBill(){
         infoError.innerText = "";
         numPeople.style.border = "none";
 
-        let bill = document.getElementById("bill");
-        let tip = 0;
-            tip = document.querySelector('input[name="tip"]:checked') ? document.querySelector('input[name="tip"]:checked') : document.getElementById("custom-tip");
+        let bill = billInput;
+        let tipValue = 0;
+            tipValue = (customTip != '') ? customTip : tipRadio;
+
         let billValue = parseFloat(bill.value);
-        let tipValue = parseFloat(tip.value);
         let people = parseFloat(numPeople.value);
 
-        console.log(tipValue);
-
-
         let billAmount = billValue / people;
-        // console.log("billValue ", billValue, " tipValue ", tipValue, " people ", people, " billAmount ", billAmount);
-
         let tipAmount = (billValue * tipValue) / 100;
         let tipAmountPerPerson = tipAmount/people;
-
         let totalAmount = billAmount + tipAmountPerPerson;
 
-        // console.log("tipAmount ", tipAmount, " tipAmountPerPerson ", tipAmountPerPerson, " totalAmount ", totalAmount);
-
-        document.getElementById("label-tip-amount").innerHTML = `$${tipAmountPerPerson.toFixed(2)}`;
-        document.getElementById("label-total-amount").innerHTML = `$${totalAmount.toFixed(2)}`;
-
-
-
+        labelTipAmount.innerHTML = `$${tipAmountPerPerson.toFixed(2)}`;
+        labelTotAmaount.innerHTML = `$${totalAmount.toFixed(2)}`;
     }
 }
 
-function reset(){
-    document.querySelector('form').reset();
-    document.getElementById("label-tip-amount").innerHTML = "$0.00";
-    document.getElementById("label-total-amount").innerHTML = "$0.00";
-    document.getElementById("reset-btn").disabled = true;
+const reset = () => {
+    form.reset();
+    labelTipAmount.innerHTML = "$0.00";
+    labelTotAmaount.innerHTML = "$0.00";
+    resetBtn.disabled = true;
 }
