@@ -119,7 +119,7 @@ section main {
 }
 
 .input-form .bill input[id="bill"] {
-    background-image: url('/images/icon-dollar.svg');
+    background-image: url('./../../images/icon-dollar.svg');
     background-repeat: no-repeat;
     background-position: 10px;
 }
@@ -204,7 +204,7 @@ section main {
 }
 
 .input-form .num-people input[id="num-people"] {
-    background-image: url('/images/icon-person.svg');
+    background-image: url('./../../images/icon-person.svg');
     background-repeat: no-repeat;
     background-position: 10px;
 }
